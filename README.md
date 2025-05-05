@@ -3,7 +3,7 @@
 ### name: Wenhao WU
 ### module_code: COMP3065
 ### coursework: 1
-### date: 4 May 2025
+### date: 3 May 2025
  ---
 
 # Person Tracking with YOLO11s and Kalman Filter
@@ -86,12 +86,10 @@ $$ [x, y, w, h, vx, vy]^T $$
   - **Initialize the tracker**: When YOLO detects a new object, the filter is initialized with the initial bounding box.
   - **Predict**: The current position is predicted based on the previous frame state.
 
-    $$\hat{x}_k = F * x_{k-1}$$
-    $$P_k = F * P_{k-1} * F^T + Q$$
+      ![fo](./for1.png)
   - **Update**: The detection result of the current frame is used to correct the prediction.
-    $$z_k=H*x_k$$
-    $$K=P_k*H^T*(H*P_k*H^T+R)^{-1}$$
-    $$x_k=\hat{x}_k+K*(z_k-H*\hat{x}_k)$$
+      ![f](./for2.png)
+      
     Where:
 
     $z_k$: Represents the bounding box information of the object detected by YOLO in the current frame.
